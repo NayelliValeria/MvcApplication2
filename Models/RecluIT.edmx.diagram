@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="052b7b1a0d884dd9af38723d54314e74" Name="Diagram1">
+        <EntityTypeShape EntityType="RecluITModel.candidato" Width="1.5" PointX="2.75" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="RecluITModel.persona" Width="1.5" PointX="0.5" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="RecluITModel.reclutador" Width="1.5" PointX="0.5" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="RecluITModel.sysdiagrams" Width="1.5" PointX="4.75" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="RecluITModel.tecnologia" Width="1.5" PointX="2.75" PointY="6.375" IsExpanded="true" />
+        <AssociationConnector Association="RecluITModel.FK_candidato_persona" ManuallyRouted="false" />
+        <AssociationConnector Association="RecluITModel.FK_candidato_reclutador" ManuallyRouted="true" >
+          <ConnectorPoint PointX="1.6562525" PointY="5.875" />
+          <ConnectorPoint PointX="1.6562525" PointY="5.5161356340560115" />
+          <ConnectorPoint PointX="2.75" PointY="5.5161356340560115" />
+        </AssociationConnector>
+        <AssociationConnector Association="RecluITModel.FK_reclutador_persona" ManuallyRouted="false" />
+        <AssociationConnector Association="RecluITModel.candidato_tecnologia" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
