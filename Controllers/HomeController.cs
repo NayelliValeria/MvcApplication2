@@ -1,8 +1,11 @@
-﻿using System;
+﻿using MvcApplication2.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
+
 
 namespace MvcApplication2.Controllers
 {
@@ -14,18 +17,27 @@ namespace MvcApplication2.Controllers
             return View();
         }
 
-        public ActionResult About()
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public ActionResult Login(reclutador model)
         {
-            ViewBag.Message = "Your app description page.";
-
-            return View();
+            if (model.validar(model.usuario, model.password))
+            {
+                FormsAuthentication.SetAuthCookie(model.usuario, model.rememberMe);
+                return View("_Layout");
+                //return RedirectToAction("Index", "Home");
+            }
+            // If we got this far, something failed, redisplay form
+            ModelState.AddModelError("", "El usuario y/o contraseña son incorrectos.");
+            return View("_Layout");
         }
 
-        public ActionResult Contact()
+        public ActionResult Logout()
         {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
+            FormsAuthentication.SignOut();
+            return RedirectToAction("Index", "Home");
         }
+
     }
 }

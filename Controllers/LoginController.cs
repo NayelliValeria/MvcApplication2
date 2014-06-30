@@ -8,7 +8,7 @@ using System.Web.Security;
 
 namespace MvcApplication2.Controllers
 {
-    public class UsuarioController : Controller
+    public class LoginController : Controller
     {
         //
         // GET: /Usuario/
@@ -24,19 +24,18 @@ namespace MvcApplication2.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public ActionResult Login(reclutador model, string returnUrl)
+        public ActionResult Login(reclutador model)
         {
             if (model.validar(model.usuario, model.password))
             {
                 FormsAuthentication.SetAuthCookie( model.usuario, model.rememberMe);
                 return RedirectToAction("Index","Home");
             }
-
             // If we got this far, something failed, redisplay form
             ModelState.AddModelError("", "El usuario y/o contraseña son incorrectos.");
             return View(model);
         }
-
+        
         public ActionResult Logout()
         {
             FormsAuthentication.SignOut();
